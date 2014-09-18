@@ -21,26 +21,19 @@ package cmu.edu.hw;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIterator;
-import org.apache.uima.cas.impl.XmiCasSerializer;
 import org.apache.uima.collection.CasConsumer_ImplBase;
-import org.apache.uima.examples.SourceDocumentInformation;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
-import org.apache.uima.util.XMLSerializer;
-import org.xml.sax.SAXException;
 
-import cmu.edu.types.Sentence;
+import cmu.edu.types.GeneMentionTag;
 
 /**
  * A simple CAS consumer that writes the CAS to XMI format.
@@ -79,8 +72,6 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
    * @see org.apache.uima.collection.base_cpm.CasObjectProcessor#processCas(org.apache.uima.cas.CAS)
    */
   public void processCas(CAS aCAS) throws ResourceProcessException {
-    String modelFileName = null;
-
     JCas jcas;
     try {
       jcas = aCAS.getJCas();
@@ -96,11 +87,10 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
       e.printStackTrace();
     }
     
-    // retreive the filename of the input file from the CAS
-    FSIterator it = jcas.getAnnotationIndex(Sentence.type).iterator();
+    FSIterator<Annotation> it = jcas.getAnnotationIndex(GeneMentionTag.type).iterator();
     
     while (it.hasNext()) {
-      Sentence sentence = (Sentence) it.next();
+      GeneMentionTag sentence = (GeneMentionTag) it.next();
       writer.println(sentence.getLineID()+"|"+sentence.getTagBegin()+" "+sentence.getTagEnd()+"|"+sentence.getGeneTag());
     }
     writer.close();

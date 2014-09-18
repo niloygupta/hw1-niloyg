@@ -10,8 +10,8 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** 
- * Updated by JCasGen Sun Sep 14 22:41:02 EDT 2014
- * XML source: /home/niloygupta/Assignment/hw1-niloyg/src/main/resources/type_system/Gene_types.xml
+ * Updated by JCasGen Thu Sep 18 17:56:08 EDT 2014
+ * XML source: /home/niloygupta/git/hw1-niloyg/hw1-niloyg/src/main/resources/type_system/Gene_types.xml
  * @generated */
 public class Annotation extends org.apache.uima.jcas.tcas.Annotation {
   /** @generated

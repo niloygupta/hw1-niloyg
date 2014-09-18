@@ -2,7 +2,7 @@
     <collectionReader>
         <collectionIterator>
             <descriptor>
-                <import location="collection_readers/BioCollectionReader.xml"/>
+                <import location="collection_readers/GeneERCollectionReader.xml"/>
             </descriptor>
         </collectionIterator>
     </collectionReader>

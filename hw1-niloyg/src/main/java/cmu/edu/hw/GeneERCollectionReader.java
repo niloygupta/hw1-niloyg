@@ -17,7 +17,7 @@ import org.apache.uima.util.Progress;
 import org.apache.uima.util.ProgressImpl;
 
 
-public class BioCollectionReader extends CollectionReader_ImplBase {
+public class GeneERCollectionReader extends CollectionReader_ImplBase {
 
   /**
    * Name of configuration parameter that must be set to the path of a directory containing input

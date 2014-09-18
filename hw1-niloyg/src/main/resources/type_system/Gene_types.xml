@@ -23,7 +23,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>cmu.edu.types.Sentence</name>
+      <name>cmu.edu.types.GeneMentionTag</name>
       <description/>
       <supertypeName>cmu.edu.types.Annotation</supertypeName>
       <features>

@@ -23,7 +23,7 @@
      filesystem.  The Java class for this collection reader is in uima_core.jar. -->
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-    <implementationName>cmu.edu.hw.BioCollectionReader</implementationName>
+    <implementationName>cmu.edu.hw.GeneERCollectionReader</implementationName>
     <processingResourceMetaData>
         <name>Gene Tag Collection Reader</name>
         <description>Reads the input file and passes it to the Analysis Engine.</description>

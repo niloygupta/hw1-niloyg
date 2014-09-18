@@ -12,11 +12,12 @@ import com.aliasi.util.AbstractExternalizable;
 
 public class LingPipeGeneEntityRecognizer {
 
+  private final String trainedGeneERModel = "src/main/resources/ne-en-bio-genetag.HmmChunker"; 
   public List<Chunk> geneTag(String geneText)
   {
-    File modelFile = new File("src/main/resources/ne-en-bio-genetag.HmmChunker");
+    File modelFile = new File(trainedGeneERModel);
     List<Chunk> chunks = new ArrayList<Chunk>();
-   // System.out.println("Reading chunker from file=" + modelFile);
+    // System.out.println("Reading chunker from file=" + modelFile);
     Chunker chunker = null;
     try {
       chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
@@ -26,12 +27,11 @@ public class LingPipeGeneEntityRecognizer {
       e.printStackTrace();
     }
 
-        Chunking chunking = chunker.chunk(geneText);
-        //System.out.println("Chunking=" + chunking);
-        for(Chunk chunk:chunking.chunkSet())
-          chunks.add(chunk);
- 
-      return chunks;
-    }
+    Chunking chunking = chunker.chunk(geneText);
+    for(Chunk chunk:chunking.chunkSet())
+      chunks.add(chunk);
+
+    return chunks;
+  }
   
 }
