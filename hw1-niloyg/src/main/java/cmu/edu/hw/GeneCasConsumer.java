@@ -21,8 +21,8 @@ package cmu.edu.hw;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
@@ -52,16 +52,13 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
 
   private File mOutputFile;
 
-  private int mDocNum;
-
   public void initialize() throws ResourceInitializationException {
-    mDocNum = 0;
     mOutputFile = new File((String) getConfigParameterValue(PARAM_OUTPUTDIR));
   }
 
   /**
    * Processes the CAS which was populated by the TextAnalysisEngines. <br>
-   * In this case, the CAS is converted to XMI and written into the output file .
+   * In this case, the CAS is converted to an offset representation .
    * 
    * @param aCAS
    *          a CAS which has been populated by the TAEs
@@ -80,12 +77,10 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
     }
     PrintWriter writer = null;
     try {
-      writer = new PrintWriter(mOutputFile, "UTF-8");
+      writer = new PrintWriter(new FileOutputStream(mOutputFile, true));
     } catch (FileNotFoundException e) {
       e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
-    }
+    } 
     
     FSIterator<Annotation> it = jcas.getAnnotationIndex(GeneMentionTag.type).iterator();
     
