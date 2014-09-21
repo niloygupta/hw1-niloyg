@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.cmu.lti.11791.f14.hw1</groupId>
   <artifactId>hw1-niloyg</artifactId>
-  <version>0.0.7-SNAPSHOT</version>
+  <version>0.0.8</version>
   <scm>
 		<connection>scm:git:git@github.com:niloygupta/hw1-niloyg.git</connection>
 		<developerConnection>scm:git:git@github.com:niloygupta/hw1-niloyg.git</developerConnection>
